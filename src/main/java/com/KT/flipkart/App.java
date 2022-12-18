@@ -23,23 +23,21 @@ public class App {
 	static WebDriver driver;
 
 	// static List<WebElement> Name;
-	// static ChromeDriver driver;
+	
 
 	public static WebDriver startbrowser() throws IOException {
 
 		String OR = PropertyFile.getValueForKey("Browser");
 
 		if (OR.equalsIgnoreCase("Chrome")) {
-			WebDriverManager.chromedriver().setup();
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\flipkart\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (OR.equalsIgnoreCase("fireFox")) {
-
-			WebDriverManager.firefoxdriver().setup();
-			// System.setProperty("webdriver.chrome.driver","E:\\Srikanth_82\\HybridFrameWork\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\flipkart\\Drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		} else if (OR.equalsIgnoreCase("Edge")) {
 
-			WebDriverManager.edgedriver().setup();
+			System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"\\flipkart\\Drivers\\EdgeDriver.exe");
 			driver = new EdgeDriver();
 		}
 
