@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import javax.swing.Action;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,7 +33,7 @@ public class App {
 		String OR = PropertyFile.getValueForKey("Browser");
 
 		if (OR.equalsIgnoreCase("Chrome")) {
-			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\flipkart\\Drivers\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (OR.equalsIgnoreCase("fireFox")) {
 			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\flipkart\\Drivers\\geckodriver.exe");
@@ -197,5 +200,16 @@ public class App {
 			return capitalizeWord;
 	}
 
-	
+	public static void action(WebDriver driver ,WebElement ele)
+	{
+		try {
+			Actions act=new Actions(driver);
+			act.moveToElement(ele);
+			act.build().perform();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 }
