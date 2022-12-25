@@ -19,13 +19,11 @@ public class Etihad extends App {
 		hp.selectOw();
 	//	App.waitforElement(driver, null, null, null);
 		hp.selectFrom("Bengaluru");
-		hp.destination("Abu Dhabi");
-		
-	
-		
-		
-		
-		
+		hp.destination("Abu Dhabi, AUH");
+		//hp.outBound("25/May/2023");
+		hp.selectCabin("First");
+		hp.selectGuest("Children");
+		hp.clickSearch();		
 		
 		
 	}

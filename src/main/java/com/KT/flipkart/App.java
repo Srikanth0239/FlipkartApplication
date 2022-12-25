@@ -15,13 +15,15 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.KT.flipkart.utlies.GenericMethodes;
 import com.KT.flipkart.utlies.PropertyFile;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class App {
+public class App extends GenericMethodes {
 
 	static WebDriver driver;
 
@@ -209,7 +211,13 @@ public class App {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static void selectByVisibleText(WebElement ele ,String text){
+	 
+		
 		
 		
 	}
+	
 }
